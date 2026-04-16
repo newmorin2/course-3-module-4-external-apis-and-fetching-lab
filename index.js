@@ -39,6 +39,20 @@ function displayAlerts(data) {
     li.textContent = alert.properties.headline;
     ul.appendChild(li);
   });
+  
 
   alertContainer.appendChild(ul);
+}
+function handleSearch() {
+  const input = document.getElementById("state-input");
+  const state = input.value.trim();
+
+  if (!state) {
+    showError("Please enter a state abbreviation");
+    return;
+  }
+
+  fetchWeatherAlerts(state);
+
+  input.value = ""; // clear input
 }
