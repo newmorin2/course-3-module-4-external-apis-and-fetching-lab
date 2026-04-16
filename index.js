@@ -56,3 +56,17 @@ function handleSearch() {
 
   input.value = ""; // clear input
 }
+function showError(message) {
+  const errorDiv = document.getElementById("error-message");
+  errorDiv.textContent = message;
+  errorDiv.style.display = "block";
+}
+
+function clearError() {
+  const errorDiv = document.getElementById("error-message");
+  errorDiv.textContent = "";
+  errorDiv.style.display = "none";
+}
+document
+  .getElementById("get-alerts-btn")
+  .addEventListener("click", handleSearch);
