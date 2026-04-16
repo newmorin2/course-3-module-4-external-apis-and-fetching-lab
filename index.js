@@ -21,3 +21,24 @@ async function fetchWeatherAlerts(state) {
     showError(error.message);
   }
 }
+function displayAlerts(data) {
+  const alertContainer = document.getElementById("alerts");
+  alertContainer.innerHTML = ""; 
+
+  const title = data.title;
+  const alerts = data.features;
+
+  const summary = document.createElement("h2");
+  summary.textContent = `${title}: ${alerts.length}`;
+  alertContainer.appendChild(summary);
+
+  const ul = document.createElement("ul");
+
+  alerts.forEach(alert => {
+    const li = document.createElement("li");
+    li.textContent = alert.properties.headline;
+    ul.appendChild(li);
+  });
+
+  alertContainer.appendChild(ul);
+}
